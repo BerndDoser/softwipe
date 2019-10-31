@@ -62,7 +62,7 @@ def get_ubsan_error_count_from_sanitizer_output_lines(output_lines):
     count = 0
     for line in output_lines:
         # Match a regex similar to the one in line_is_warning_line
-        regex = r'.+\.(c|cc|cpp|cxx|h|hpp):[0-9]+:[0-9]+:\ runtime\ error:.+'
+        regex = r'.+\.(c|cc|cpp|cxx|h|hpp|cu|cuh):[0-9]+:[0-9]+:\ runtime\ error:.+'
         if re.match(regex, line):
             count += 1
     return count

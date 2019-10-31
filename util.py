@@ -55,7 +55,7 @@ def get_excluded_paths(program_dir_abs, exclude):
 def find_all_source_files(program_dir_abs, excluded_paths):
     """
     Find all source files in program_dir_abs. Traverses the directory recursively and returns all source files,
-    i.e. all *.c or *.cpp or *.h or *.hpp files.
+    i.e. all *.c or *.cc or *.cpp or *.cxx or *.h or *.hpp or *.cu or *.cuh files.
     :param program_dir_abs: The absolute path to the root directory of the program.
     :param excluded_paths: A tupel containing the paths to be excluded. The tupel should be obtained via the
     get_excluded_paths() function.
@@ -63,7 +63,7 @@ def find_all_source_files(program_dir_abs, excluded_paths):
     """
     source_files = []
 
-    source_file_endings = ('.c', '.cc', '.cpp', '.cxx', '.h', '.hpp')
+    source_file_endings = ('.c', '.cc', '.cpp', '.cxx', '.h', '.hpp', '.cu', '.cuh')
 
     for dirpath, dirs, files in os.walk(program_dir_abs):
         if dirpath.startswith(excluded_paths):
